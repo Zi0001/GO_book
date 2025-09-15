@@ -1,0 +1,86 @@
+package main
+import "fmt"
+
+type Car struct{
+	Brand string
+	Year int
+	Speed float64
+}
+
+// func updateCarAge()
+
+func  main()  {
+	bmv := Car{"bmv", 2025, 350.12}
+	// updateCarAge(bmv)
+
+	fmt.Println(bmv)
+
+	hello()
+
+	into, floate := add(10, 20, 12.123123, 13.123, 4.12)
+	fmt.Println(into)
+	fmt.Println(floate)
+
+	var f func(string, string) string = par_func
+	fmt.Println(f("Привет", "Джоел"))
+
+	fmt.Println("--------Методы---------")
+	var cityes city =  city{"Москва", "Ростов", "Сочи"}
+	cityes.print()
+
+	bmv2 := Car {Brand: "Banan", Year: 2018, Speed: 300}
+	bmv2.print2()
+	bmv2.car_str("И будет нарезать бублики")
+
+	bmv3 := Car {Brand: "Banan", Year: 2018, Speed: 300}
+	var c_bmv3 *Car = &bmv3
+	fmt.Println("\n",c_bmv3.Year)
+	c_bmv3.update_year(2020)
+	fmt.Println(c_bmv3.Year)
+}	
+
+
+
+
+func hello(){
+	fmt.Println("Hello world!")
+}
+
+func add(x, y int, a, b, c float32) (int, float32){
+	var z = x + y
+	d := a - b - c
+	// fmt.Printf("Целое число %d ", z)
+	// fmt.Printf("\nВещественное число %.3f ", d)
+	return z, d
+}
+
+
+
+func par_func(x string, y string) string{
+	res := x + " " + y
+	return res
+}
+
+type city []string
+
+func (c city) print(){
+	for _, value := range c{
+		fmt.Println(value)
+	}
+}
+
+
+func (c Car) print2(){
+	fmt.Println("Brand - ", c.Brand)
+	fmt.Println("Year - ", c.Year)
+	fmt.Println("Speed - ", c.Speed)
+}
+
+func (c Car) car_str(banan string){
+	fmt.Print("Саня купет себе ", c.Brand, " ", banan)
+}
+
+
+func (c *Car) update_year(new_year int){
+	c.Year = new_year
+}
